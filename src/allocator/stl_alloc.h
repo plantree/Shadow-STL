@@ -32,6 +32,8 @@
 #include <string.h>
 #include <assert.h>
 
+#include "include/stl_config.h"
+
 #ifndef SHADOW_RESTRICT
 #define SHADOW_RESTRICT
 #endif // SHADOW_RESTRICT

@@ -7,16 +7,22 @@ project(shadow_stl)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+Include(FetchContent)
+
+FetchContent_Declare(
+  Catch2
+  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+  GIT_TAG        v3.0.1 # or a later release
+)
+
+FetchContent_MakeAvailable(Catch2)
+
 # add include path
 include_directories(${CMAKE_SOURCE_DIR}/src)
 include_directories(${CMAKE_SOURCE_DIR}/src/include)
 
 
-# # 添加源文件
-add_executable(callback src/test.cc)
+# add source
+add_executable(tests ${CMAKE_SOURCE_DIR}/test/stl_threads_test.cc)
 
-# # 设置头文件查找路径
-# target_include_directories(callback PRIVATE
-#     ${CMAKE_SOURCE_DIR}
-#     ${CMAKE_SOURCE_DIR}/functional
-# )
+target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)
