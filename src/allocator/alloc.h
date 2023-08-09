@@ -2,7 +2,7 @@
 #define SHADOW_STL_ALLOC_H
 
 #ifndef SHADOW_STL_CONFIG_H
-#include "stl_config.h"
+#include "include/stl_config.h"
 #endif
 
 #ifndef SHADOW_STL_INTERNAL_ALLOC_H

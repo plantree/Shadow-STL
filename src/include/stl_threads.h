@@ -81,7 +81,7 @@ struct _Shadow_STL_mutex_lock {
     _Shadow_STL_mutex_lock() { 
         pthread_mutex_init(&_M_lock, nullptr);
     }
-    
+
     void _M_acquire_lock() { 
         pthread_mutex_lock(&_M_lock);
     }
@@ -99,7 +99,7 @@ struct _Shadow_STL_mutex_lock {
 struct _Shadow_STL_auto_lock {
     _Shadow_STL_mutex_lock& _M_lock;
 
-    // RAII 资源获取即初始化
+    // RAII
     _Shadow_STL_auto_lock(_Shadow_STL_mutex_lock& _lock) : _M_lock(_lock) { 
         _M_lock._M_acquire_lock();
     }

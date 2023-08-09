@@ -1,7 +1,6 @@
 #ifndef SHADOWS_STL_CONFIG_H
 #define SHADOWS_STL_CONFIG_H
 
-// Flags:  常量定义的解释
 // * SHADOW_STL_NO_BOOL: defined if the compiler doesn't have bool as a builtin
 //   type.
 // * SHADOW_STL_HAS_WCHAR_T: defined if the compier has wchar_t as a builtin type.
@@ -128,51 +127,11 @@
 #define SHADOW_STL_END_RELOPS_NAMESPACE 
 #define SHADOW_STD_RELOPS 
 #undef  SHADOW_STL_USE_NAMESPACES
-#endif // SHADOW_STL_NO_NAMESPACES
-
-// 下面是 GNU C++ 编译器支持
-# ifdef __GNUC__
-#if __GNUC__ == 2 && __GNUC_MINOR__ <= 7
-#define SHADOW_STL_STATIC_TEMPLATE_MEMBER_BUG    /* 模板类支持静态数据成员初始化 */
-#endif // __GNUC__ == 2 && __GNUC_MINOR__ <= 7
-
-#if __GNUC__ < 2 
-#define SHADOW_STL_NEED_TYPENAME
-#define SHADOW_STL_NEED_EXPLICIT
-#endif // __GNUC__ < 2
-
-#if __GNUC__ == 2 && __GNUC_MINOR__ <= 8
-#define SHADOW_STL_NO_EXCEPTION_HEADER
-#define SHADOW_STL_NO_BAD_ALLOC
-#endif // __GNUC__ == 2 && __GNUC_MINOR__ <= 8
-
-#if __GNUC__ == 2 && __GNUC_MINOR__ >= 8
-#define SHADOW_STL_CLASS_PARTIAL_SPECIALIZATION   /* 针对对模板参数做部分特化 */
-#define SHADOW_STL_FUNCTION_TMPL_PARTIAL_ORDER    /* 针对对函数模板做部分特化 */
-#define SHADOW_STL_EXPLICIT_FUNCTION_TMPL_ARGS    /* 调用一个 function template 时可以明白指定其 template arguments */
-#define SHADOW_STL_MEMBER_TEMPLATES               /* 类模板中嵌套成员模板 */
-#define SHADOW_STL_CAN_THROW_RANGE_ERRORS
-// g++ 2.8.1 supports member template functions, but not member
-// template nested classes.
-
-#if __GNUC_MINOR__ >= 9
-#define SHADOW_STL_MEMBER_TEMPLATE_CLASSES
-#define SHADOW_STL_TEMPLATE_FRIENDS
-#define __SGI_STL_USE_AUTO_PTR_CONVERSIONS
-#define SHADOW_STL_HAS_NAMESPACES
-//#define SHADOW_STL_USE_NEW_IOSTREAMS
-#endif // __GNUC_MINOR__ >= 9
-
-#endif // __GNUC__ == 2 && __GNUC_MINOR__ >= 8
 
 #define SHADOW_STL_DEFAULT_CONSTRUCTOR_BUG
 
 #define SHADOW_STL_USE_EXCEPTIONS
 
 #define SHADOW_STL_THREADS
-
-#if (__GNUC__ < 2) || (__GNUC__ == 2 && __GNUC_MINOR__ < 95)
-#define SHADOW_STL_NO_FUNCTION_PTR_IN_CLASS_TEMPLATE
-#endif  // __GNUC__ < 2 || __GNUC__ == 2 && __GNUC_MINOR__ < 95
 
 #endif  // SHADOW_STL_CONFIG_H
