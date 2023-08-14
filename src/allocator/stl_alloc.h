@@ -25,6 +25,9 @@
 #include <string.h>
 #include <assert.h>
 
+// #ifndef SHADOW_STL_CONFIG_H
+// #include "include/stl_config.h"
+// #endif  // SHADOW_STL_CONFIG_H
 #include "include/stl_threads.h"
 
 #define SHADOW_NODE_ALLOCATOR_THREADS true
