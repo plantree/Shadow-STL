@@ -113,7 +113,7 @@ void* _malloc_alloc_template<__inst>::_S_oom_realloc(void* p, size_t n) {
 
 using malloc_alloc = _malloc_alloc_template<0>;
 
-template <class _Tp, class _Alloc>
+template <typename _Tp, typename _Alloc>
 class simple_alloc {
 public:
     static _Tp* allocate(size_t n) {
@@ -462,12 +462,12 @@ public:
 
     // n is permitted to be 0.  The C++ standard says nothing about what
     // the return value is when n == 0.
-    T* allocate(size_type n, const void* hint = 0) {
+    static T* allocate(size_type n, const void* hint = 0) {
         return n != 0 ? static_cast<T*>(_Alloc::allocate(n * sizeof(T))): nullptr;
     }
 
     // p is not permitted to be a null pointer.
-    void deallocate(pointer p, size_type n) {
+    static void deallocate(pointer p, size_type n) {
         _Alloc::deallocate(p, n * sizeof(T));
     }
 

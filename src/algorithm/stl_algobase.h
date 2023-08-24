@@ -128,6 +128,11 @@ inline OutputIter copy(InputIter first, InputIter last, OutputIter result, _true
     return _copy_aux(first, last, result, value_type(first));
 }
 
+template <typename T>
+static T* copy(const T* first, const T* last, T* result) {
+    return _copy_trivial(first, last, result);
+}
+
 //--------------------------------------------------
 // copy_backward
 template <typename BidirectionalIter1, typename BidirectionalIter2, typename Distance>
