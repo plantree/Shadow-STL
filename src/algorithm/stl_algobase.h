@@ -128,6 +128,13 @@ inline OutputIter copy(InputIter first, InputIter last, OutputIter result, _true
     return _copy_aux(first, last, result, value_type(first));
 }
 
+template <typename InputIter, typename OutputIter>
+static OutputIter copy(InputIter first, InputIter last, OutputIter result) {
+    using Category = typename iterator_traits<InputIter>::iterator_category;
+    using Distance = typename iterator_traits<InputIter>::difference_type;
+    return _copy(first, last, result, Category(), static_cast<Distance*>(0));
+}
+
 template <typename T>
 static T* copy(const T* first, const T* last, T* result) {
     return _copy_trivial(first, last, result);
