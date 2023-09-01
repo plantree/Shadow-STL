@@ -31,7 +31,7 @@ add_executable(tests ${CMAKE_SOURCE_DIR}/test/stl_threads_test.cc
                       ${CMAKE_SOURCE_DIR}/test/stl_alloc_test.cc
                       ${CMAKE_SOURCE_DIR}/test/stl_construct_test.cc
                       ${CMAKE_SOURCE_DIR}/test/stl_iterator_test.cc
-                      ${CMAKE_SOURCE_DIR}/test/stl_vector_test.cc)
-add_executable(fake_test ${CMAKE_SOURCE_DIR}/src/test.cc)
+                      ${CMAKE_SOURCE_DIR}/test/stl_vector_test.cc
+                      ${CMAKE_SOURCE_DIR}/test/stl_list_test.cc)
 
 target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)
